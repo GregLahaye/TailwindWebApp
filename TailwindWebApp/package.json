@@ -1,0 +1,19 @@
+{
+  "name": "TailwindWebApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tailwind:development": "postcss ./tailwind.css -o ./wwwroot/css/site.css",
+    "tailwind:production": "postcss ./tailwind.css -o ./wwwroot/css/site.css -- --env production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.2"
+  }
+}

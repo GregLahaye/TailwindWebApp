@@ -17,4 +17,24 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Include="tailwind.css" Set="Tailwind" />
+	<UpToDateCheckInput Include="postcss.config.js" Set="Tailwind" />
+	<UpToDateCheckInput Include="tailwind.config.js" Set="Tailwind" />
+	<UpToDateCheckOutput Include="wwwroot/css/site.css" Set="Tailwind" />
+  </ItemGroup>
+
+  <Target Name="Npm" BeforeTargets="Tailwind">
+    <Exec Command="npm install" />
+  </Target>
+
+  <Target Name="Tailwind" BeforeTargets="Build">
+    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run tailwind:development" />
+	<Exec Condition="$(Configuration) == 'Release'" Command="npm run tailwind:production" />
+  </Target>
+
 </Project>
